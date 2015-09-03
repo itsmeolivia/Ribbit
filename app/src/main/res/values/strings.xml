@@ -7,7 +7,7 @@
 
     <string name="hello_world">Hello world!</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
@@ -16,4 +16,10 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="emailField">Email</string>
     <string name="signuptext">Sign Up</string>
+
+    <string name="signup_error_message">Please make sure you fill out all fields!</string>
+    <string name="signup_error_title">Oops!</string>
+
+    <string name="login_error_message">You forgot to fill something out!</string>
+    <string name="login_error_title">Oops!</string>
 </resources>

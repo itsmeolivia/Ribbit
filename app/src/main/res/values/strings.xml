@@ -21,4 +21,7 @@
 
     <string name="login_error_message">You forgot to fill something out!</string>
     <string name="login_error_title">Oops!</string>
+
+    <string name="empty_inbox_label">No new messages :(</string>
+    <string name="empty_friend_label">No friends 4 u</string>
 </resources>

@@ -19,9 +19,15 @@
     <string name="signup_error_message">Please make sure you fill out all fields!</string>
     <string name="signup_error_title">Oops!</string>
 
+    <string name="error_title">Oh poop!</string>
+
     <string name="login_error_message">You forgot to fill something out!</string>
     <string name="login_error_title">Oops!</string>
 
     <string name="empty_inbox_label">No new messages :(</string>
     <string name="empty_friend_label">No friends 4 u</string>
+
+    <string name="edit_friend_label">Edit Friends</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="action_settings">Settings</string>
 </resources>

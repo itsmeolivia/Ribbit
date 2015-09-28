@@ -6,6 +6,12 @@
           android:title="@string/action_logout"
           android:orderInCategory="100"
           app:showAsAction="never"/>
+    <item android:id="@+id/action_camera"
+          android:title="Camera"
+          android:icon="@drawable/ic_action_camera"
+          app:showAsAction="always"/>
     <item android:id="@+id/edit_friends"
-        android:title="@string/edit_friend_label"/>
+        android:title="@string/edit_friend_label"
+       />
+
 </menu>

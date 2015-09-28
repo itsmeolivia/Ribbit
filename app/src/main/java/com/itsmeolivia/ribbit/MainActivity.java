@@ -2,7 +2,11 @@ package com.itsmeolivia.ribbit;
 
 import java.util.Locale;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.preference.DialogPreference;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -23,6 +27,24 @@ import android.widget.TextView;
 import com.parse.ParseUser;
 
 public class MainActivity extends ActionBarActivity {
+
+    protected DialogInterface.OnClickListener mDialogListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which) {
+                case 0: //take pic
+                    break;
+                case 1: //choose pic
+                    break;
+                case 2: //take vid
+                    break;
+                case 3: //choose vid
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -74,15 +96,24 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_logout) {
-            ParseUser.logOut();
-            navigateToLogin();
+        switch(id){
+            case R.id.action_logout: {
+                ParseUser.logOut();
+                navigateToLogin();
+            }
+            case R.id.edit_friends: {
+                Intent intent = new Intent(this, EditFriendsActivity.class);
+                startActivity(intent);
+            }
+            case R.id.action_camera: {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setItems(R.array.camera_choices, mDialogListener);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+            default:
+
         }
-        else if (id == R.id.edit_friends) {
-            Intent intent = new Intent(this, EditFriendsActivity.class);
-            startActivity(intent);
-        }
-        else;
 
         return super.onOptionsItemSelected(item);
     }

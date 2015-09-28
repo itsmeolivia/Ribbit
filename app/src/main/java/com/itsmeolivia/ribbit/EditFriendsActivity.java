@@ -36,6 +36,7 @@ public class EditFriendsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_friends);
 
@@ -85,14 +86,6 @@ public class EditFriendsActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_edit_friends, menu);
-        return true;
-    }
-
-
-    @Override
     protected void onResume(){
         super.onResume();
 
@@ -127,6 +120,7 @@ public class EditFriendsActivity extends ActionBarActivity {
                     getListView().setAdapter(adapter);
 
                     addFriendCheckMarks();
+
                 } else {
 
                     Log.e(TAG, e.getMessage());

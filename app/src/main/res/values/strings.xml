@@ -38,4 +38,5 @@
         <item>Take Video</item>
         <item>Choose Video</item>
     </string-array>
+    <string name="title_activity_recipients">Send to</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.itsmeolivia.ribbit;
+package com.itsmeolivia.ribbit.UI;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.itsmeolivia.ribbit.Helper.ParseConstants;
+import com.itsmeolivia.ribbit.R;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -174,6 +176,21 @@ public class MainActivity extends ActionBarActivity {
                 mediaScanIntent.setData(mMediaUri);
                 sendBroadcast(mediaScanIntent);
             }
+
+            Intent recipientsIntent = new Intent(this, RecipientsActivity.class);
+            recipientsIntent.setData(mMediaUri);
+
+            String fileType;
+            if (requestCode == PICK_PHOTO_REQUEST || requestCode == TAKE_PHOTO_REQUEST) {
+                fileType = ParseConstants.TYPE_IMAGE;
+            }
+            else {
+
+                fileType = ParseConstants.TYPE_VIDEO;
+            }
+
+            recipientsIntent.putExtra(ParseConstants.KEY_FILE_TYPE, fileType);
+            startActivity(recipientsIntent);
 
         }
         else if (resultCode != RESULT_CANCELED) {

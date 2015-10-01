@@ -1,9 +1,13 @@
-package com.itsmeolivia.ribbit;
+package com.itsmeolivia.ribbit.UI;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.itsmeolivia.ribbit.R;
+import com.itsmeolivia.ribbit.UI.FriendFragment;
+import com.itsmeolivia.ribbit.UI.InboxFragment;
 
 import java.util.Locale;
 

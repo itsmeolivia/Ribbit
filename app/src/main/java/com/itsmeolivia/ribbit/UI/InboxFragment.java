@@ -1,10 +1,12 @@
-package com.itsmeolivia.ribbit;
+package com.itsmeolivia.ribbit.UI;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.itsmeolivia.ribbit.R;
 
 /**
  * Created by olivia on 9/3/15.

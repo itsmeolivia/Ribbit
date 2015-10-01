@@ -1,4 +1,4 @@
-package com.itsmeolivia.ribbit;
+package com.itsmeolivia.ribbit.UI;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.itsmeolivia.ribbit.Helper.ParseConstants;
+import com.itsmeolivia.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

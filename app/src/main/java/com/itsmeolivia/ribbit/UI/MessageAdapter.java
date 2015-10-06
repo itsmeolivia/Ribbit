@@ -1,4 +1,4 @@
-package com.itsmeolivia.ribbit;
+package com.itsmeolivia.ribbit.UI;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.itsmeolivia.ribbit.Helper.ParseConstants;
+import com.itsmeolivia.ribbit.R;
 import com.parse.ParseObject;
 
 import java.util.List;

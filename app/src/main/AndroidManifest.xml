@@ -56,6 +56,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UI.MainActivity" />
         </activity>
+        <activity
+            android:name=".UI.ViewImageActivity"
+            android:label="@string/title_activity_view_image"
+            android:parentActivityName=".UI.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itsmeolivia.ribbit.UI.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

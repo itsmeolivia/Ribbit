@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.itsmeolivia.ribbit.Helper.ParseConstants;
+import com.itsmeolivia.ribbit.MessageAdapter;
 import com.itsmeolivia.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -41,6 +42,7 @@ public class InboxFragment extends ListFragment {
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(ParseConstants.CLASS_MESSAGES);
         query.whereEqualTo(ParseConstants.KEY_RECIPIENT_IDS, ParseUser.getCurrentUser().getObjectId());
         query.addDescendingOrder(ParseConstants.KEY_CREATED_AT);
+
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> messages, ParseException e) {
@@ -57,9 +59,7 @@ public class InboxFragment extends ListFragment {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
-                            android.R.layout.simple_list_item_1,
-                            usernames);
+                    MessageAdapter adapter = new MessageAdapter(getListView().getContext(), mMessages);
                     getListView().setAdapter(adapter);
                 }
 

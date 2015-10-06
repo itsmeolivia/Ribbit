@@ -40,6 +40,7 @@ public class EditFriendsActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_friends);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {

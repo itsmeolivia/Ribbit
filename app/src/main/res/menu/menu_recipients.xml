@@ -4,8 +4,7 @@
       tools:context="com.itsmeolivia.ribbit.UI.RecipientsActivity">
     <item android:id="@+id/action_send"
           android:title="Send"
-          android:orderInCategory="100"
           app:showAsAction="always"
-          android:visible="false"
+          android:visible="true"
           android:icon="@drawable/ic_action_send"/>
 </menu>

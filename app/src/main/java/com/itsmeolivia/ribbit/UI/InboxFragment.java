@@ -38,8 +38,9 @@ public class InboxFragment extends ListFragment {
 
     @Override
     public void onResume(){
-        getActivity().setProgressBarIndeterminateVisibility(true);
+
         super.onResume();
+        getActivity().setProgressBarIndeterminateVisibility(true);
 
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(ParseConstants.CLASS_MESSAGES);
         query.whereEqualTo(ParseConstants.KEY_RECIPIENT_IDS, ParseUser.getCurrentUser().getObjectId());
@@ -62,7 +63,7 @@ public class InboxFragment extends ListFragment {
                     }
 
                     MessageAdapter adapter = new MessageAdapter(getListView().getContext(), mMessages);
-                    getListView().setAdapter(adapter);
+                    setListAdapter(adapter);
                 }
 
             }

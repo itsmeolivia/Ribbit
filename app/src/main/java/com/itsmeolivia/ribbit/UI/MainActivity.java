@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.itsmeolivia.ribbit.Helper.ParseConstants;
 import com.itsmeolivia.ribbit.R;
+import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -105,6 +106,8 @@ public class MainActivity extends ActionBarActivity {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParseAnalytics.trackAppOpened(getIntent());
 
         ParseUser currentUser = ParseUser.getCurrentUser();
 

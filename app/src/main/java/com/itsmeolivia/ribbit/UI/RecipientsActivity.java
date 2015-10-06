@@ -46,10 +46,20 @@ public class RecipientsActivity extends ListActivity {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipients);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setupActionBar();
+
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         mMediaUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
+    }
+
+    private void setupActionBar() {
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
@@ -81,7 +91,7 @@ public class RecipientsActivity extends ListActivity {
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
                             android.R.layout.simple_list_item_checked,
                             usernames);
-                    getListView().setAdapter(adapter);
+                    setListAdapter(adapter);
                 } else {
                     Log.e(TAG, e.getMessage());
                     AlertDialog.Builder builder = new AlertDialog.Builder(getListView().getContext());
@@ -94,6 +104,7 @@ public class RecipientsActivity extends ListActivity {
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,10 +150,10 @@ public class RecipientsActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        if (l.getCheckedItemCount() > 0)
+        //if (l.getCheckedItemCount() > 0)
             mSendMenuItem.setVisible(true);
-        else
-            mSendMenuItem.setVisible(false);
+        //else
+          //  mSendMenuItem.setVisible(false);
     }
 
     protected ParseObject createMessage() {

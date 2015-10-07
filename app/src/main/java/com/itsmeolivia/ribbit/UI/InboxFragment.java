@@ -18,6 +18,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,23 +50,27 @@ public class InboxFragment extends ListFragment {
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> messages, ParseException e) {
-                getActivity().setProgressBarIndeterminateVisibility(false);
+            getActivity().setProgressBarIndeterminateVisibility(false);
 
-                if (e == null) {
+            if (e == null) {
 
-                    mMessages = messages;
-                    String[] usernames = new String[mMessages.size()];
+                mMessages = messages;
+                String[] usernames = new String[mMessages.size()];
 
-                    int i = 0;
-                    for (ParseObject message : mMessages) {
-                        usernames[i] = message.getString(ParseConstants.KEY_SENDER_NAME);
-                        i++;
-                    }
+                int i = 0;
+                for (ParseObject message : mMessages) {
+                    usernames[i] = message.getString(ParseConstants.KEY_SENDER_NAME);
+                    i++;
+                }
 
+                if (getListView().getAdapter() == null) {
                     MessageAdapter adapter = new MessageAdapter(getListView().getContext(), mMessages);
                     setListAdapter(adapter);
                 }
-
+                else {
+                    ((MessageAdapter)getListView().getAdapter()).refill(mMessages);
+                }
+            }
             }
         });
 
@@ -88,7 +93,22 @@ public class InboxFragment extends ListFragment {
         }
 
         else {
+            Intent intent = new Intent(Intent.ACTION_VIEW, fileUri);
+            intent.setDataAndType(fileUri, "video/*");
+            startActivity(intent);
+        }
 
+        List<String> ids = message.getList(ParseConstants.KEY_RECIPIENT_IDS);
+        if (ids.size() == 1) {
+            message.deleteInBackground();
+        }
+        else {
+            ids.remove(ParseUser.getCurrentUser().getObjectId());
+            ArrayList<String> idsToRemove = new ArrayList<>();
+            idsToRemove.add(ParseUser.getCurrentUser().getObjectId());
+
+            message.removeAll(ParseConstants.KEY_RECIPIENT_IDS, idsToRemove);
+            message.saveInBackground();
         }
     }
 }
